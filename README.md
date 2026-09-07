@@ -1,68 +1,71 @@
-# Amazon Customer Review Sentiment Analysis
+# Content-Based Movie Recommendation System
 
-A machine learning project that classifies Amazon customer reviews as **positive or negative** using Natural Language Processing and Logistic Regression.
+A content-based movie recommendation system that recommends movies based on their **genres and descriptions** using text vectorization and cosine similarity.
 
 ## Overview
 
-Customer reviews contain useful information about how people feel about a product. This project uses NLP techniques to convert review text into numerical features and trains a machine learning model to predict the sentiment of unseen reviews.
+Finding a movie to watch can be difficult when there are thousands of choices. This project creates a recommendation system that suggests movies similar to a movie selected by the user.
+
+Instead of relying on ratings from other users, the system compares the content of movies to find similar titles.
 
 ## Workflow
 
 ```text
-Amazon Reviews
+Movie Dataset
       ↓
-Data Cleaning
+Select Relevant Features
       ↓
-Text Preprocessing
+Combine Movie Information
       ↓
-TF-IDF Vectorization
+Text Vectorization
       ↓
-Train/Test Split
+Cosine Similarity
       ↓
-Logistic Regression
+Find Similar Movies
       ↓
-Sentiment Prediction
-      ↓
-Model Evaluation
+Generate Recommendations
 ```
 
 ## Features
 
-* Cleans and preprocesses review text
-* Converts text into numerical features using TF-IDF
-* Uses unigram and bigram features
-* Trains a Logistic Regression classifier
-* Predicts positive and negative sentiment
-* Evaluates the model using standard classification metrics
+* Uses movie genres and descriptions as content features
+* Converts movie information into numerical representations
+* Calculates similarity between movies
+* Recommends movies based on content similarity
+* Uses a dataset containing approximately 10,000 movies
+* Saves recommendation artifacts for later inference
 
-## Model
+## How It Works
 
-### TF-IDF
+### 1. Feature Preparation
 
-TF-IDF (Term Frequency-Inverse Document Frequency) is used to represent review text numerically.
+Relevant movie information such as genres and descriptions is combined to create a representation of each movie.
 
-The project uses:
+### 2. Text Vectorization
 
-* Unigrams
-* Bigrams
+The combined text information is converted into numerical vectors so that movies can be compared mathematically.
 
-This allows the model to consider both individual words and short word combinations.
+### 3. Cosine Similarity
 
-### Logistic Regression
+Cosine similarity is used to measure how similar two movie vectors are.
 
-Logistic Regression is used as the classification model because it works well with high-dimensional sparse text features.
+Movies with higher similarity scores are considered better recommendations.
 
-## Results
+## Example
 
-The model achieved:
+If a user selects a movie, the system:
 
-**93.25% Accuracy**
-
-The model was also evaluated using:
-
-* Precision
-* Recall
-* F1-score
+```text
+Selected Movie
+      ↓
+Compare with other movies
+      ↓
+Calculate similarity scores
+      ↓
+Sort by similarity
+      ↓
+Return similar movies
+```
 
 ## Tech Stack
 
@@ -70,15 +73,21 @@ The model was also evaluated using:
 * **Pandas**
 * **NumPy**
 * **Scikit-learn**
-* **TF-IDF**
-* **Logistic Regression**
-* **Jupyter Notebook / Google Colab**
+* **Text Vectorization**
+* **Cosine Similarity**
 
 ## What I Learned
 
-* Text preprocessing for machine learning
-* TF-IDF feature extraction
-* Working with sparse text representations
-* Training classification models
-* Evaluating NLP models using multiple metrics
-* Understanding the effect of n-grams on text classification
+* Building a recommendation system from scratch
+* Preparing text-based features
+* Applying vectorization to structured data
+* Using cosine similarity for recommendations
+* Saving trained artifacts for later inference
+
+## Future Improvements
+
+* Add a user interface for easier interaction
+* Include additional movie metadata
+* Improve recommendation quality with hybrid approaches
+* Compare different vectorization techniques
+
